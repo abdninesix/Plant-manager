@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import ThemeButton from "./ThemeButton";
+import { SignIn, UserButton } from "@stackframe/stack";
 
 const navLinks = [
     { name: 'Home', path: '/' },
@@ -18,9 +19,8 @@ const Navbar = () => {
     return (
         <div className='w-full py-2 flex sticky top-0 z-10 backdrop-blur-md items-center justify-between'>
             {/*Logo*/}
-            <Link href='/' className='flex items-center gap-4 text-2xl font-bold group'>
-                <span className='flex flex-row text-green-600'>letsPlant</span>
-            </Link>
+            <Link href='/' className='text-2xl font-bold text-green-600'>letsPlant</Link>
+
             {/*Mobile menu*/}
             <div className='md:hidden'>
                 <div className={`relative cursor-pointer text-4xl z-20 ${open ? "text-white" : ""}`} onClick={() => setOpen((prev) => (!prev))}>{open ? "X" : "☰"}</div>
@@ -42,6 +42,8 @@ const Navbar = () => {
             </div>
 
             <ThemeButton/>
+            <UserButton/>
+            <SignIn/>
         </div>
     )
 }
